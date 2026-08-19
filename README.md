@@ -12,15 +12,16 @@ The project explores two approaches:
 
 ## My Contribution
 
+
 This was a team project.
 
 My individual contribution:
-- proposed the original project idea and use case
-- led functional testing and validation
-- designed and tested scenarios across different request categories
-- identified ambiguous and incorrectly processed cases
-- contributed to evaluating the system's classification behavior
+- proposed the original project concept and use case
+- led testing and validation of the system
+- prepared and designed the final team presentation
+- helped communicate the business problem, system logic, and project results
 
+I also prepared and designed the original team presentation included above.
 ## Features
 
 - Email parsing
