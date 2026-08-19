@@ -70,3 +70,20 @@ A proper held-out evaluation is being added to measure performance on unseen ema
 ## Context
 
 Developed as a team academic project in 2026.
+
+## Model Evaluation
+
+The original project reported performance on training data, which does not reliably measure generalization.
+
+I later revisited the evaluation methodology and introduced 2-fold stratified cross-validation on 75 labeled emails across 10 semantic categories.
+
+| Model | Accuracy | Macro F1 | Weighted F1 |
+|---|---:|---:|---:|
+| Dummy baseline | 26.7% | 0.042 | 0.112 |
+| Decision Tree | 26.7% | 0.244 | 0.238 |
+| Logistic Regression | **62.7%** | **0.644** | **0.636** |
+| Linear SVM | 60.0% | 0.627 | 0.608 |
+
+Logistic Regression achieved the strongest overall performance in this experiment.
+
+The dataset is small and imbalanced, particularly for categories such as Client, Spam, and HR, so these results should be interpreted as preliminary rather than production-level performance.
