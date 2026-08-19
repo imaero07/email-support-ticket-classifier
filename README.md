@@ -1,60 +1,72 @@
-# Система обработки и классификации почты
+# Email Support Ticket Classifier
 
-Проект для хакатона. Программа читает письма из папки, определяет к какой
-категории относится каждое письмо, раскладывает их по папкам и в конце выводит
-статистику по обработке.
+A team Python project for automated classification and routing of incoming IT support requests.
 
-## Что делает программа
+## Overview
 
-Отдел IT-поддержки получает много писем, и их приходится вручную сортировать.
-Наша программа делает это автоматически: берёт письма из папки inbox, читает
-каждое, классифицирует и перемещает в папку нужной категории. Также ведёт лог, 
-считает статистику и устойчива к не типичным форматам.
+The system processes incoming emails, identifies the type of IT support request, assigns one of 13 categories, and routes the message for further processing.
 
-## Категории
+The project explores two approaches:
+- rule-based classification
+- decision-tree-based classification
 
-Мы проанализировали письма и выбрали такие категории: Urgent (срочные сбои),
-Repeat (повторные обращения), Tech (технические проблемы и оборудование),
-Access (доступы и права), HR (отпуска, больничные), Finance (счета, оплаты),
-Docs (документы, договоры), Auto (автоуведомления и рассылки), Client
-(обращения клиентов) и Spam.
+## My Contribution
 
-Если письмо не читается, оно попадает в Unknown. А если читается, но не
-подходит уверенно ни под одну категорию, то попадает в Unclear.
+This was a team project.
 
-## Как работает классификация
+My individual contribution:
+- proposed the original project idea and use case
+- led functional testing and validation
+- designed and tested scenarios across different request categories
+- identified ambiguous and incorrectly processed cases
+- contributed to evaluating the system's classification behavior
 
-Для каждой категории у нас есть список ключевых слов. Программа идёт по письму
-и считает, сколько слов какой категории в нём встретилось. 
-Письмо уходит в ту категорию, у которой очков больше
-всего. Также есть ранжирование писем по приоритету при одинаковом количестве очков.
+## Features
 
-## Структура программы
+- Email parsing
+- Classification into 13 support-request categories
+- Rule-based classification
+- Decision-tree classification
+- Confidence-based fallback for ambiguous requests
+- Automatic file routing
+- Logging
+- Classification metrics
+- Automated tests
 
-Программа разбита на классы, у каждого своя задача:
-Email — хранит данные письма (тема, отправитель, тело).
-EmailReader — читает файл и разбирает его на части, обрабатывает ошибки чтения.
-Classifier — определяет категорию письма по ключевым словам.
-FileMover — создаёт папки и перемещает письма.
-Logger — ведёт лог и считает статистику.
-main — связывает всё вместе и запускает обработку по очереди.
+## Project Structure
 
-## Как запустить
+- `src/` — application source code
+- `tests/` — automated tests
+- `inbox/` — synthetic sample emails used for testing
+- `labels.csv` — email labels
+- `requirements.txt` — Python dependencies
 
-Программа запускается через bash-скрипт из папки src:
+## Dataset
 
-./run.sh
+The repository contains 100+ synthetic email samples created for development and testing.
 
-Или напрямую через python:
+No real customer or personal data is included.
 
-python3 main.py --input ../inbox --output ../
+## Technologies
 
-Есть дополнительные аргументы: --debug включает подробный вывод, --ml
-переключает на классификатор на основе машинного обучения вместо правил.
+- Python
+- scikit-learn
+- pytest
+- joblib
 
-## Дополнительно
+## Current Limitations
 
-Были реализовано тестирование основных элементов программы и также
-как дополнителную часть мы сделали альтернативный классификатор на машинном обучении
-(дерево решений из sklearn). Он обучается на том, как письма разложил основной
-классификатор, и потом может классифицировать сам.
+The original model evaluation was performed primarily on training data.  
+A proper held-out evaluation is being added to measure performance on unseen emails.
+
+## Future Improvements
+
+- train/test evaluation
+- per-class precision, recall, and F1-score
+- error analysis
+- improved handling of ambiguous requests
+- comparison of multiple classification algorithms
+
+## Context
+
+Developed as a team academic project in 2026.
