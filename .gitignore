@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDEs
+.idea/
+.vscode/
+
+# macOS
+.DS_Store
+__MACOSX/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Project-generated files
+Emails.log
+output/
+ml_model.joblib
